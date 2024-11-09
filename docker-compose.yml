@@ -19,7 +19,7 @@ services:
       - server
     networks:
       - webrtc_network
-    command: ./WebSocketClient
+    command: ./main
 
 networks:
   webrtc_network:

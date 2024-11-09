@@ -14,6 +14,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN g++ -o WebSocketClient main.cpp -lboost_system -lssl -lcrypto -lpthread
+RUN g++ -o main main.cpp -lboost_system -lssl -lcrypto -lpthread
 
-CMD ["./WebSocketClient"]
+CMD ["./main"]
