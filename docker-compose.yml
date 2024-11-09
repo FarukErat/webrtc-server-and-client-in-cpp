@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: ./server
+    container_name: signaling_server
+    ports:
+      - "8321:8321"
+    networks:
+      - webrtc_network
+    command: ./main
+
+  client:
+    build:
+      context: ./client
+    container_name: websocket_client
+    depends_on:
+      - server
+    networks:
+      - webrtc_network
+    command: ./WebSocketClient
+
+networks:
+  webrtc_network:
+    driver: bridge
